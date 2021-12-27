@@ -1,0 +1,272 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    line-height: 1.8;
+    color: #898fa1;
+    font-size: 15px;
+    background: #f2f2f2;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #11245A;
+}
+
+h2 {
+    position: relative;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+h2:after {
+    position: absolute;
+    content: '';
+    height: 2px;
+    bottom: -10px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 20%;
+    background: rgba(0, 0, 0, 0.1);
+
+}
+
+.title-sm {
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+a {
+    font-weight: 700;
+    transition: all 0.4s ease;
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+
+}
+
+section {
+    padding: 100px 0;
+}
+
+.btn {
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border-radius: 25px;
+}
+
+.btn-brand {
+    color: #fff;
+    background-color: #E93B81;
+}
+
+.btn-brand:hover {
+    background-color: #ce2f6e;
+}
+
+/*                                          NAVBAR                  */
+.navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: top 0.4s;
+}
+
+.logo-text {
+    font-size: 22px;
+    text-transform: uppercase;
+    color: #11245A !important;
+}
+
+.navbar .nav-link {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/*                                          HOME                  */
+#home {
+    min-height: 100vh;
+    color: #fff;
+    background: linear-gradient(rgba(17, 36, 90, 0.8), rgba(17, 36, 90, 0.8)), url("../img/hero.jpg") fixed center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+#home h1 {
+    color: #fff;
+    font-weight: 700;
+}
+
+#home p {
+    color: #fff;
+    max-width: 550px;
+    margin: 18px auto;
+}
+
+
+/*                                          PLAN                  */
+
+.plan-carousel h3 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.plan-box{
+    margin: 20px 0;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 15px 45px -20px rgba(206, 191, 191, 0.494);
+}
+
+.plan-carousel .owl-dots .owl-dot.active span, .plan-carousel .owl-dots .owl-dot:hover span{
+    margin-top: 30px;
+    background-color: #11245A;
+}
+
+/*                                          TEAM                  */
+#team {
+    background: linear-gradient(rgba(17, 36, 90, 0.8), rgba(17, 36, 90, 0.8)), url("../img/hero.jpg") fixed center;
+    background-size: cover;
+}
+
+#team .h-title {
+    color: #fff;
+}
+
+#team .h-title:after {
+    background-color: #fff;
+}
+
+.team-member {
+    text-align: center;
+    max-width: 300px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.member-card-title{
+    margin: 20px 0 0;
+}
+.member-card-subtitle{
+    font-size: 12px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.5);
+}
+.member-card-subtitle-line {
+    height: 1px;
+    margin: 2px auto 0;
+    left: 0;
+    right: 0;
+    width: 150px;
+    background: rgba(0, 0, 0, 0.5);
+}
+.member-card-description{
+    padding: 20px 0;
+}
+.team-member .team-member-img img {
+    border-radius: 10px 10px 0 0;
+}
+.team-member .team-member-img img,
+.team-member .team-member-img .social-icons {
+    transition: all 0.4s ease;
+}
+
+.team-member .team-member-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.team-member .team-member-img .social-icons {
+    width: 100%;
+    height: 60px;
+    background-color: #E93B81;
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-member .team-member-img .social-icons a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    font-size: 24px;
+    color: #fff;
+    border-radius: 100px;
+    margin: 0 4px;
+}
+
+.team-member .team-member-img .social-icons a:hover {
+    background-color: #fff;
+    color: #E93B81;
+}
+
+.team-member:hover .team-member-img .social-icons {
+    bottom: 0;
+}
+
+.team-member:hover img {
+    transform: translateY(-60px);
+}
+
+.team-carousel .owl-item .active, .team-carousel .owl-item .item{
+    display: flex;
+    justify-content: center;
+}
+
+/*                                          FOOTER                  */
+footer{
+    padding: 10px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+footer h3{
+    margin: 0;
+}
+.qq {
+    font-size: 25px;
+}
+
+.em {
+    color: rgb(83, 204, 83);
+    font-weight: 700;
+}
+.procras {
+    color: rgb(245, 88, 88);
+    font-weight: 700;
+}
+.yuki {
+    color: blueviolet;
+    font-weight: 700;
+}
+.basis {
+    color: rgb(83, 204, 83);
+    font-size: 10px;
+}
+.mood {
+    color: rgb(245, 88, 88);
+    font-weight: 700;
+    text-transform:  uppercase;
+    
+}

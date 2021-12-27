@@ -1,0 +1,135 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--        Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+  <!--        Google fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/boxicons.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/game-style.css' %}">
+  <title>Detecator</title>
+</head>
+
+<body>
+
+  <header class="fixed-top">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-white">
+      <div class="container">
+        <a class="navbar-brand logo-text" href="#">Turtles</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <section id="game">
+    <div class="container">
+      {% if image %}
+      <div class="row m-auto">
+        <div class="col align-self-center">
+          <div class="upload-img">
+            {% if image %}
+            {{ image }}
+            <img id="img" src='{% static  "" %}' alt="Embedded Image">
+            {% endif %}
+          </div>
+          <a href="{% url 'emotion_detection:detecator'%}" class="btn btn-brand">Try Again</a>
+        </div>
+      </div>
+      {% else %}
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row justify-content-md-center">
+          <div class="col-md-auto">
+            <div>
+              <label for="formFile" class="form-label"></label>
+              {{ form.image }}
+            </div>
+
+            <div>
+              <!-- <p>Detect</p> -->
+              {{ form.emotion.label }} {{ form.emotion }}
+              {{ form.age.label }} {{ form.age }}
+              {{ form.race.label }} {{ form.race }}
+            </div>
+          </div>
+        </div>
+        <div class="row m-auto">
+          <div class="col align-self-center">
+            <div class="upload-img">
+              {% if image %}
+              {{ image }}
+              <img id="img" src='{% static  "" %}' alt="Embedded Image">
+              {% endif %}
+            </div>
+            <!-- <a href="#" class="btn btn-brand">Submit</a> -->
+            <button type="submit" class="btn btn-brand">Submit</button>
+          </div>
+        </div>
+      </form>
+      {% endif %}
+
+
+    </div>
+  </section>
+
+
+  <!--            Option 1: Bootstrap Bundle with Popper -->
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <!--            Jquery cdn js  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  {% if image %}
+  <script>
+    var img;
+    img = document.getElementById("img")
+    img.src = '/static/{{ image|safe}}'
+
+  </script>
+  {% else %}
+  <script>
+    emotion_cb = document.getElementById("id_emotion")
+    age_cb = document.getElementById("id_age")
+    race_cb = document.getElementById("id_race")
+
+    emotion_cb.addEventListener('change', e => {
+        if (emotion_cb.checked) {
+            age_cb.checked = false;
+            race_cb.checked = false;
+        } else {
+        }
+    });
+
+    age_cb.addEventListener('change', e => {
+        if (age_cb.checked) {
+            emotion_cb.checked = false;
+            race_cb.checked = false;
+        } else {
+            return
+        }
+    });
+
+    race_cb.addEventListener('change', e => {
+        if (race_cb.checked) {
+            emotion_cb.checked = false;
+            age_cb.checked = false;
+        } else {
+            return
+        }
+    });
+  </script>
+  {% endif %}
+</body>
+
+</html>
